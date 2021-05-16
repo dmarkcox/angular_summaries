@@ -29,7 +29,7 @@ export class NewBookComponent implements OnInit {
 
   onSubmit(){
     this.service.addBook(this.addBookForm.value).subscribe(data => {
-      console.debug("router: " + this.router)
+      console.debug("[onSubmit] router: " + this.router)
       this.router.navigate(["/books"]);
     }, error => {
       this.showError = true;

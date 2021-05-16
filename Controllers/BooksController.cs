@@ -13,6 +13,14 @@ namespace Summaries.Controllers
             _service = service;
         }
 
+        //Read all books
+        [HttpGet("[action]")]
+        public IActionResult GetBooks()
+        {
+            var allBooks = _service.GetAllBooks();
+            return Ok(allBooks);
+        }
+
         //Create/Add a new book
         [HttpPost("AddBook")]
         public IActionResult AddBook([FromBody]Book book)
@@ -31,14 +39,6 @@ namespace Summaries.Controllers
                 return BadRequest(ex.Message);
             }
             
-        }
-
-        //Read all books
-        [HttpGet("[action]")]
-        public IActionResult GetBooks()
-        {
-            var allBooks = _service.GetAllBooks();
-            return Ok(allBooks);
         }
 
         //Update an existing book

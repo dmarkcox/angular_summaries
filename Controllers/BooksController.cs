@@ -1,16 +1,21 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 using Summaries.Data;
+using Microsoft.Extensions.Logging;
 
 namespace Summaries.Controllers
 {
     [Route("api/[controller]")]
     public class BooksController:Controller
     {
+        
+        private readonly ILogger<BooksController> _logger;
+
         private IBookService _service;
+
         public BooksController(IBookService service)
         {
-            _service = service;
+            _service = service;            
         }
 
         //Read all books
